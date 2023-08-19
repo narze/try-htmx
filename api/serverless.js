@@ -12,8 +12,15 @@ const app = Fastify({
   logger: true,
 })
 
+app.register(view, {
+  engine: {
+    ejs: require("ejs"),
+  },
+})
+app.register(require("@fastify/formbody"))
+
 // Register your application as a normal plugin.
-app.register(import("../app.js"))
+app.register(require("../app.js"))
 
 export default async (req, res) => {
   await app.ready()
