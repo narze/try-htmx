@@ -1,6 +1,17 @@
 import fastify from "fastify"
+import view from "@fastify/view"
 
 const server = fastify()
+
+server.register(view, {
+  engine: {
+    ejs: require("ejs"),
+  },
+})
+
+server.get("/", (req, reply) => {
+  reply.view("/templates/index.ejs", { name: req.query.name })
+})
 
 server.get("/ping", async (request, reply) => {
   return "pong\n"
