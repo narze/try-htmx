@@ -1,0 +1,23 @@
+<div id="counter">
+  <h1>Counter</h1>
+
+  <p class="counter"><%= value %></p>
+
+  <button
+    hx-post="/counter/increment"
+    hx-vals='{"value": <%= value %>}'
+    hx-target="#counter"
+  >
+    +1
+  </button>
+
+  <button
+    hx-post="/counter/decrement"
+    hx-vals='{"value": <%= value %>}'
+    hx-target="#counter"
+  >
+    -1
+  </button>
+
+  <button hx-post="/counter/reset" hx-target="#counter">Reset</button>
+</div>
