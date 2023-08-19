@@ -9,12 +9,19 @@ server.register(view, {
   },
 })
 
-server.get("/", (req, reply) => {
+// <{
+//   Querystring: IQuerystring,
+//   Headers: IHeaders,
+//   Reply: IReply
+// }>
+server.get<{
+  Querystring: { name: string }
+}>("/", (req, reply) => {
   reply.view("/templates/index.ejs", { name: req.query.name })
 })
 
 server.get("/ping", async (request, reply) => {
-  return "pong\n"
+  return "pong!"
 })
 
 server.listen({ port: 8080 }, (err, address) => {

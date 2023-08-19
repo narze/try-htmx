@@ -1,1 +1,33 @@
-<h1>Hello <%= name || "World" %>!</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Try htmx (with fastify backend)</title>
+    <script
+      src="https://unpkg.com/htmx.org@1.9.4"
+      integrity="sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h1>Try htmx</h1>
+
+    <p>
+      <button hx-get="/ping" hx-swap="outerHTML">
+        Ping (Replace outer HTML)
+      </button>
+    </p>
+
+    <p>
+      <button hx-get="/ping" hx-swap="innerHTML">
+        Ping (Replace inner HTML)
+      </button>
+    </p>
+
+    <p>
+      <button hx-get="/ping" hx-target=".pong">Ping (Replace target)</button>
+      <span class="pong">...</span>
+    </p>
+  </body>
+</html>
