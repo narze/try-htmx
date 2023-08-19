@@ -12,6 +12,7 @@
   "author": "Manassarn Manoonchai",
   "license": "ISC",
   "dependencies": {
+    "@fastify/formbody": "^7.4.0",
     "@fastify/view": "^8.0.0",
     "ejs": "^3.1.9",
     "fastify": "^4.21.0"

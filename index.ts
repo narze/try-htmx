@@ -8,6 +8,7 @@ server.register(view, {
     ejs: require("ejs"),
   },
 })
+server.register(require("@fastify/formbody"))
 
 // <{
 //   Querystring: IQuerystring,
